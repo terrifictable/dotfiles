@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   programs.nixvim = {
     globals = {
@@ -24,6 +24,11 @@
 
       splitbelow = true;
       splitright = true;
+
+      shell = 
+        if pkgs ? zsh
+        then "${pkgs.zsh}/bin/zsh"
+        else "${pkgs.bash}/bin/bash";
     };
   };
 }
