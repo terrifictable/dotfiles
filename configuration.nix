@@ -7,6 +7,7 @@ rec {
 
     ./wm.nix
     ./vim.nix
+    ./audio.nix
   ];
   
   nix.settings = {
@@ -16,6 +17,11 @@ rec {
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     git wget
+
+    pavucontrol
+    pamixer
+    playerctl
+
 
     (pkgs.dmenu.overrideAttrs (_: {
       src = ./config/dmenu;
