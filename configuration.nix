@@ -31,10 +31,10 @@ rec {
       src = ./config/slstatus;
       patches = [ ];
     }))
-    (pkgs.dwmblocks.overrideAttrs (_: {
-      src = ./config/dwmblocks;
-      patches = [ ];
-    }))
+    # (pkgs.dwmblocks.overrideAttrs (_: {
+    #   src = ./config/dwmblocks;
+    #   patches = [ ];
+    # }))
   ];
 
   boot.loader.systemd-boot.enable = true;
