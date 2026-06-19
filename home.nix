@@ -21,6 +21,7 @@
     
     zsh 
     alacritty 
+    spotifyd spotatui
 
 
     # jetbrains mono font

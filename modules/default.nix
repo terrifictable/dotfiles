@@ -6,7 +6,9 @@
     ./dunst.nix
     ./shell.nix
     ./alacritty.nix
-    ./nixvim
+    ./spotify.nix
     ./helium.nix
+
+    ./nixvim
   ];
 }
