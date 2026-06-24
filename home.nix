@@ -12,16 +12,21 @@
     dunst 
     feh
 
+    # shell
     lf
     fd
     eza 
     fzf 
     ripgrep 
-    clang
-    
+    clang clang-tools
+
     zsh 
     alacritty 
-    spotifyd spotatui
+    
+
+    # media
+    discord 
+    spotify # spotifyd spotatui
 
 
     # jetbrains mono font

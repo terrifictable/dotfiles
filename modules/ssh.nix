@@ -28,6 +28,6 @@
     };
   };
 
-  home.file.".ssh/github".source     = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/home-manager/modules/keys/github.key";
-  home.file.".ssh/github.pub".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/home-manager/modules/keys/github.pub.key";
+  home.file.".ssh/github".source     = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/home-manager/resources/keys/github.key";
+  home.file.".ssh/github.pub".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/home-manager/resources/keys/github.pub.key";
 }

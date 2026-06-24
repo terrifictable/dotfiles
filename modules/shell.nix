@@ -1,4 +1,4 @@
-{ ... }:
+{ config, pkgs, ... }:
 let
   shellAliases = {
     ls = "eza --icons --group-directories-first";
@@ -7,9 +7,12 @@ let
     lt = "eza --tree --level=2 --icons --group-directories-first";
     lta = "eza --tree --level=3 --icons --git --group-directories-first";
 
+    clear = "unset NEW_LINE_BEFORE_PROMPT && clear";
+
     nrs = "sudo nixos-rebuild switch";
     hms = "home-manager switch";
   };
+  omz-theme-path = ".oh-my-zsh-custom/themes/lambda-nix.zsh-theme";
 in {
   programs.zsh = {
     enable = true;
@@ -45,16 +48,40 @@ in {
       zstyle ':completion:*' group-name '''
       zstyle ':completion:*:descriptions' format '%F{yellow}-- %d --%f'
 
-      precmd() { print "" }
+      precmd() {
+        if [ -z "$NEW_LINE_BEFORE_PROMPT" ]; then
+          NEW_LINE_BEFORE_PROMPT=1
+        elif [ "$NEW_LINE_BEFORE_PROMPT" -eq 1 ]; then
+            echo ""
+        fi
+      }
     '';
 
     oh-my-zsh = {
       enable = true;
-      theme = "lambda"; # "jreese";
+      theme = "lambda-nix"; # "jreese";
+      custom = "${config.home.homeDirectory}/${omz-theme-path}";
     };
+
+    plugins = [
+      {
+        name = "zsh-nix-shell";
+        file = "nix-shell.plugin.zsh";
+        src = pkgs.fetchFromGitHub {
+          owner = "chisui";
+          repo = "zsh-nix-shell";
+          rev = "v0.8.0";
+          sha256 = "1lzrn0n4fxfcgg65v0qhnj7wnybybqzs4adz7xsrkgmcsr0ii8b7";
+        };
+      }
+    ];
 
     inherit shellAliases;
   };
+  
+  home.file."${omz-theme-path}".source = ../resources/lambda-nix.zsh-theme;
+
+
   
   programs.bash = {
     enable = true;
