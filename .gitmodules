@@ -1,0 +1,8 @@
+[submodule "home-manager"]
+	path = home-manager
+	url = https://github.com/terrifictable/dotfiles
+	branch = home-manager
+[submodule "nixos"]
+	path = nixos
+	url = https://github.com/terrifictable/dotfiles
+	branch = nixos
