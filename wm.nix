@@ -7,7 +7,10 @@
 
   services = {
     displayManager = {
-      ly.enable = true;
+      ly = {
+        enable = true;
+        x11Support = true;
+      };
     };
 
     xserver = {

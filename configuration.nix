@@ -1,5 +1,5 @@
 { config, pkgs, ... }:
-rec {
+{
   system.stateVersion = "26.05"; # Before changing this value read the documentation for this option
 
   imports = [ 
