@@ -1,6 +1,9 @@
 # dotfiles
 
-![screenshot](https://paste.swurl.xyz/3ad8127481edd4df/screenshot.jpg)
+![dmenu](images/dmenu.jpg)
+![shutdown](images/shutdown.jpg)
+![nvim](images/nvim.jpg)
+
 
 <br>
 
