@@ -1,3 +1,5 @@
+setopt prompt_subst
+
 function lambda_prompt_nix() {
   case "${IN_NIX_SHELL:-}" in
     pure|impure)
@@ -9,4 +11,8 @@ function lambda_prompt_nix() {
   esac
 }
 
-PROMPT='$(lambda_prompt_nix)'$PROMPT
+local ret_status="%(?:λ:%{$fg_bold[red]%}λ)"
+PROMPT='$(lambda_prompt_nix)${ret_status}%{$reset_color%} %~/ $(git_prompt_info)%{$reset_color%}'
+
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "

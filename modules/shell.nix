@@ -12,7 +12,12 @@ let
     nrs = "sudo nixos-rebuild switch";
     hms = "home-manager switch";
   };
-  omz-theme-path = ".oh-my-zsh-custom/themes/lambda-nix.zsh-theme";
+
+  
+  omz-theme = {
+    path = ".oh-my-zsh/custom";
+    file = "themes/lambda-nix.zsh-theme";
+  };
 in {
   programs.zsh = {
     enable = true;
@@ -60,7 +65,7 @@ in {
     oh-my-zsh = {
       enable = true;
       theme = "lambda-nix"; # "jreese";
-      custom = "${config.home.homeDirectory}/${omz-theme-path}";
+      custom = "${config.home.homeDirectory}/${omz-theme.path}";
     };
 
     plugins = [
@@ -79,7 +84,7 @@ in {
     inherit shellAliases;
   };
   
-  home.file."${omz-theme-path}".source = ../resources/lambda-nix.zsh-theme;
+  home.file."${omz-theme.path}/${omz-theme.file}".source = ../resources/lambda-nix.zsh-theme;
 
 
   
